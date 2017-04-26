@@ -42,11 +42,16 @@ List.prototype.filter = function(callback) {
     callback(this[i], i, this);
     if (i === true) result.push[i];
   }
-  return results;
+  return result;
 }
 
 List.prototype.map = function(callback) {
   let result = [];
+  for(let i = 0; i < this.length; i++) {
+    callback(this[i], i, this);
+    result.push[i];
+  }
+  return result;
 }
 
 List.prototype.reduce = function() {}
