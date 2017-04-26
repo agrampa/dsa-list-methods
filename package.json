@@ -1,0 +1,35 @@
+{
+  "name": "dsa-list-methods",
+  "version": "1.0.0",
+  "description": "Project to create array method functionality and test it",
+  "main": "list.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agrampa/dsa-list-methods.git"
+  },
+  "keywords": [
+    "mocha",
+    "test",
+    "method",
+    "array",
+    "map",
+    "push",
+    "pop",
+    "reduce",
+    "filter",
+    "foreach"
+  ],
+  "author": "Allie Grampa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/agrampa/dsa-list-methods/issues"
+  },
+  "homepage": "https://github.com/agrampa/dsa-list-methods#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.3.0"
+  }
+}
