@@ -39,8 +39,7 @@ List.prototype.forEach = function(callback) {
 List.prototype.filter = function(callback) {
   let result = [];
   for(let i = 0; i < this.length; i++) {
-    callback(this[i], i, this);
-    if (i === true) result.push[i];
+    if (callback(this[i], i, this)) result.push[i];
   }
   return result;
 }
@@ -54,4 +53,11 @@ List.prototype.map = function(callback) {
   return result;
 }
 
-List.prototype.reduce = function() {}
+List.prototype.reduce = function(callback) {
+  let sum = 0;
+  for(let i = 0; i < this.length; i++){
+    sum += this[i];
+    callback(sum, this[i], i, this);
+  }
+  return sum;
+}
