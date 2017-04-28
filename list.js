@@ -1,15 +1,14 @@
 'use strict';
 
-module.exports = function List() {
-  let array = [];
-  for(let keys in arguments) {
+const List = module.exports = function () {
+  for(let key in arguments) {
     this[key] = arguments[key];
   }
   this.length = arguments.length;
 }
 
 //O(n)
-exports.testCopy = function() {
+List.prototype.testCopy = function() {
   let result = new List();
   for(let key in this) {
     result[key] = this[key];
@@ -18,15 +17,15 @@ exports.testCopy = function() {
 }
 
 //O(n)
-exports.testPush = function(value) {
-  let result = this.copy();
+List.prototype.testPush = function(value) {
+  let result = this.testCopy();
   result[result.length++] = value;
   return result;
 }
 
 //O(n)
-exports.testPop = function() {
-  let result = this.copy();
+List.prototype.testPop = function() {
+  let result = this.testCopy();
   delete result[--result.length];
   return{
     value: this[this.length - 1],
@@ -35,14 +34,14 @@ exports.testPop = function() {
 }
 
 //O(n)
-exports.testForEach = function(callback) {
+List.prototype.testForEach = function(callback) {
   for(let i = 0; i < this.length; i++) {
     callback(this[i], i, this);
   }
 }
 
 //O(n)
-exports.testFilter = function(callback) {
+List.prototype.testFilter = function(callback) {
   let result = [];
   for(let i = 0; i < this.length; i++) {
     if (callback(this[i], i, this)) result.push[i];
@@ -51,17 +50,17 @@ exports.testFilter = function(callback) {
 }
 
 //O(n)
-exports.testMap = function(callback) {
+List.prototype.testMap = function(callback) {
   let result = [];
   for(let i = 0; i < this.length; i++) {
     callback(this[i], i, this);
-    result.push[i];
+    result.push(this[i]);
   }
   return result;
 }
 
 //O(n)
-exports.testReduce = function(callback) {
+List.prototype.testReduce = function(callback) {
   let sum = 0;
   for(let i = 0; i < this.length; i++){
     sum += this[i];
