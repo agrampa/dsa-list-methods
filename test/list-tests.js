@@ -3,23 +3,29 @@
 const expect = require('chai').expect;
 const methods = require('../list.js');
 
+let test = new methods();
+// console.log('test', test);
+test.array = [];
+test.array.push(5);
+console.log('test', test.array);
+// console.log('test length', test.array.length);
+
 describe('array methods', function() {
   describe('.push method', function() {
-    let pushTest = [1, 2, 3, 4, 5, 6]; // dont do this, instead create an instance of the array in the before block, run node and require as a const to test 
-    
-    it('should begin with an array', done => {
-      expect(pushTest).to.be.an('array');
+
+    it.only('should begin with an array', done => {
+      expect(test.array).to.be.an('array');
       done();
     });
     
-    it('should return the length of the array before the method was applied', done => {
-      expect(pushTest).to.have.lengthOf(6);
+    it.only('should return the length of the array before the method was applied', done => {
+      expect(test.array).to.have.lengthOf(1);
       done();
     });
     
-    it('should add an element to an array and return the new length of the array', done => {
-      pushTest.methods.push(7);
-      expect(pushTest).to.have.lengthOf(7);
+    it.only('should add an element to an array and return the new length of the array', done => {
+      test.array.testPush(4)
+      expect(test.array).to.have.lengthOf(2);
       done();
     });
   });
