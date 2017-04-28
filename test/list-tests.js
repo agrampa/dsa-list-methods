@@ -104,14 +104,41 @@ describe('array methods', function() {
       done();
     });
     
-    it('should ')
+    it('should modify the original value', done => {
+      let map = mapTest.testMap((mapTest) => {
+        mapTest += 3;
+        expect(mapTest).to.equal(5);
+        done();
+      });
+    });
+    
+    it('should no longer contain the original value', done => {
+      let map = mapTest.testMap((mapTest) => {
+        mapTest =+ 3;
+        expect(mapTest).to.not.equal(2);
+        done();
+      });
+    });
   });
   
   describe('.reduce method', function() {
     let reduceTest = list.testPush(2);
+    let reduceTestTwo = reduceTest.testPush(4);
+    let reduceTestThree = reduceTestTwo.testPush(9);
 
     it('should begin with an object', done => {
       expect(reduceTest).to.be.an('object');
+      done();
+    });
+    
+    it('should have a length of 3', done => {
+      expect(reduceTestThree).to.have.lengthOf(3);
+      done();
+    });
+    
+    it('should result in a value of 15', done => {
+      let reduce = reduceTestThree.testReduce((reduceTestThree) => {});
+      expect(reduce).to.equal(15);
       done();
     });
   });
