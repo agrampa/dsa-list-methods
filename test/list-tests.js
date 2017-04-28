@@ -72,27 +72,46 @@ describe('array methods', function() {
   });
   
   describe('.filter method', function() {
+    let filterTest = list.testPush(2);
     
     it('should begin with an object', done => {
-      expect(filterTest).to.be.an('array');
+      expect(filterTest).to.be.an('object');
+      done();
+    });
+    
+    it('should return the value if the filter callback is true', done => {
+      let filter = filterTest.testFilter((filterTest) => {
+        filterTest > 3;
+      });
+      expect(filter).to.be.empty;
+      done();
+    });
+    
+    it('should not return the value if the filter callback is false', done => {
+      let filter = filterTest.testFilter((filterTest) => {
+        filterTest < 3;
+      });
+      expect(filterTest).to.have.lengthOf(1);
       done();
     });
   });
   
   describe('.map method', function() {
-    let mapTest = [22, 23, 24, 25, 26];
-    
-    it('should begin with an array', done => {
-      expect(mapTest).to.be.an('array');
+    let mapTest = list.testPush(2);
+
+    it('should begin with an object', done => {
+      expect(mapTest).to.be.an('object');
       done();
     });
+    
+    it('should ')
   });
   
   describe('.reduce method', function() {
-    let reduceTest = [27, 28, 29, 30, 31, 32];
-    
-    it('should begin with an array', done => {
-      expect(reduceTest).to.be.an('array');
+    let reduceTest = list.testPush(2);
+
+    it('should begin with an object', done => {
+      expect(reduceTest).to.be.an('object');
       done();
     });
   });
