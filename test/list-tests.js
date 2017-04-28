@@ -47,18 +47,33 @@ describe('array methods', function() {
   });
   
   describe('.forEach method', function() {
-    let forEachTest = [12, 13, 14, 15, 16];
+    let forEachTest = list.testPush(2);
     
-    it('should begin with an array', done => {
-      expect(forEachTest).to.be.an('array');
+    it('should begin with an object', done => {
+      expect(forEachTest).to.be.an('object');
       done();
     });
+    
+    it('should add three to the value and return 5', done => {
+      let forEach = forEachTest.testForEach((forEachTest) => {
+        forEachTest += 3;
+        expect(forEachTest).to.equal(5);
+        done();
+      });
+    });
+    
+    it('should not equal the original value anymore', done => {
+      let forEach = forEachTest.testForEach((forEachTest) => {
+        forEachTest += 3;
+        expect(forEachTest).to.not.equal(2);
+        done();
+      });
+    })
   });
   
   describe('.filter method', function() {
-    let filterTest = [17, 18, 19, 20, 21];
     
-    it('should begin with an array', done => {
+    it('should begin with an object', done => {
       expect(filterTest).to.be.an('array');
       done();
     });
